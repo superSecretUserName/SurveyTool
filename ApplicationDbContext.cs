@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SurveyTool.Models;
+using SurveyTool.Models; // Ensure that ApplicationUser is defined in this namespace
 
 namespace SurveyTool
 {
-  public class ApplicationDbContext : DbContext
+  public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
   {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
