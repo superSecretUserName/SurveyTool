@@ -1,5 +1,5 @@
 # Use the official .NET SDK image for development.
-FROM mcr.microsoft.com/dotnet/sdk:9.0
+FROM mcr.microsoft.com/dotnet/sdk:8.0
 
 # Install the EF Core CLI global tool.
 RUN dotnet tool install --global dotnet-ef --version 9.0.1

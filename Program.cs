@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SurveyTool;
 using AppDbContext = SurveyTool.ApplicationDbContext;
+using Microsoft.AspNetCore.Identity;
+using SurveyTool.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Configure Entity Framework Core with PostgreSQL.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
+
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 var app = builder.Build();
