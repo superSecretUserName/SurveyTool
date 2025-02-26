@@ -34,12 +34,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
+// app.MapStaticAssets(); // This line is commented out because 'WebApplication' does not have a method 'MapStaticAssets'.
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    ;
 
+app.MapRazorPages();
+app.MapDefaultControllerRoute();
+app.UseStaticFiles();
 
 app.Run();
